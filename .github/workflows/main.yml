@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: self-hosted
 
- steps:
+    steps:
     - uses: actions/checkout@v2
 
     - name: Use Node.js
@@ -21,8 +21,4 @@ jobs:
       #run: npm ci
     - name: start project
       run: npm start index.js
-    
-
-     
       
-
