@@ -21,3 +21,4 @@ jobs:
       #run: npm ci
     - name: start project
       run: npm start index.js
+      
