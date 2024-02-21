@@ -1,4 +1,4 @@
-name: Deploy Node.js with pm2
+name:  Node.js with pm2
 on:
   push:
     branches:
@@ -10,20 +10,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: install Node.js
+    - name: use Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '18'
-
-    - name: Install dependencies
-      run: npm install
       
       #run: npm ci
     - name: start project
       run: npm start index.js
     
-      - name: Install PM2
+    - name: Install PM2
       run: npm install -g pm2
+
+    - name: Install dependencies
+      run: npm install
 
     - name: Build project (if needed)
       run: npm run build
