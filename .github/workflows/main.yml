@@ -24,6 +24,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: kill pm2 services
+      run: sudo pm2 kill
+
     - name: Start Node.js application with PM2
       run: sudo pm2 start index.js 
 
