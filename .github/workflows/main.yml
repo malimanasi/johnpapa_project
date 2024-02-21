@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-
 jobs:
   build:
 
@@ -26,5 +22,4 @@ jobs:
       
       run: npm ci
       run: pm2 start index.js
-      name: build
-      run: npm run build
+      
