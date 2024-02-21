@@ -1,11 +1,29 @@
-name: node-hello
-version: 1.0.0
-description: A simple Node.js project
-main: index.js
-scripts:
-  start: node index.js
-author: John Papa
-license: MIT
-dependencies:
-  express: ^4.17.1
-`runs-on: self-hosted` 
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # You can change this to your preferred Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
