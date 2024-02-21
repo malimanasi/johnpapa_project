@@ -24,7 +24,7 @@ jobs:
     - name: Install PM2
       run: npm install -g pm2
 
-    - name: Build project (if needed)
+    - name: Build project
       run: npm run build
 
     - name: Start application with PM2
