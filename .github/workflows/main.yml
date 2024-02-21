@@ -1,28 +1,30 @@
-name: Deploy Node.js App
+name: Node.js CI
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
+
     runs-on: self-hosted
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Setup Node.js
+    - name: Use Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '18'
 
     - name: Install dependencies
       run: npm install
-
-    - name: Build
+      
+      run: npm ci
+      run: pm2 start index.js
+      name: build
       run: npm run build
-
-    - name: Start Node.js application
-      run: npm start index.js
